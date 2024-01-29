@@ -1,0 +1,34 @@
+<div class="row margin_0px rowBox margin_top_5px">
+    <div class="col-md-12 padding_0px">
+        <div class="panel panel-inverse position-relative" style="margin-bottom: 0px;">
+            <app-panel-user name="List of SLP(s)" #panelHeader>
+
+            <mat-table #table [dataSource]="assetLatestStatus" class="table table-striped table-bordered" matSort>
+
+                <ng-container matColumnDef="slno">
+                    <mat-header-cell *matHeaderCellDef> S.No.</mat-header-cell>
+                    <mat-cell *matCellDef="let assetLatestStatus; let i= index">{{i+1}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                    <mat-cell *matCellDef="let assetLatestStatus"><a href='#/assets/pages/asset-details?id={{assetLatestStatus.assetId}}&typeCode={{assetLatestStatus.assetTypeCode}}'> {{assetLatestStatus.assetName}}</a></mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                    <mat-header-cell *matHeaderCellDef> Light Status </mat-header-cell>
+                    <mat-cell *matCellDef="let assetLatestStatus">{{assetLatestStatus.status}}</mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="statustime">
+                    <mat-header-cell *matHeaderCellDef> Light Status Time </mat-header-cell>
+                    <mat-cell *matCellDef="let assetLatestStatus">{{assetLatestStatus.statusTime}}</mat-cell>
+                  </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row   *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            </app-panel-user>
+        </div>
+    </div>
+</div>
+

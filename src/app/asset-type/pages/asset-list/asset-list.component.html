@@ -1,0 +1,55 @@
+<div class="row margin_0px rowBox margin_top_5px">
+    <div class="col-md-12 padding_0px">
+      
+        <app-panel-user name="List of {{assetname}}(s)" #panelHeader>
+  
+          <!-- Input field for search -->
+          <input searchfieldPanel style="display: none" id="search" class="form-control m-input ml-2" matInput
+            (keyup)="filterAsset($event.target.value)" placeholder="Search.." />
+          <!-- Search button -->
+          <a searchButtonPanel href="javascript:;" matTooltip="Click to Search"
+            class="btn btn-xs btn-icon btn-circle btn-default" (click)="panelHeader.searchButtonPanel(this.assets)">
+            <i class="fa fa-search"></i>
+          </a>
+          <mat-table #table [dataSource]="assets" class="table table-striped table-bordered" matSort>
+  
+            <ng-container matColumnDef="slno">
+              <mat-header-cell *matHeaderCellDef> S.No.</mat-header-cell>
+              <mat-cell *matCellDef="let assets; let i= index">{{i+1}}</mat-cell>
+            </ng-container>
+  
+            <ng-container matColumnDef="name">
+              <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+              <mat-cell  *matCellDef="let assets"><a href='#/assets/pages/asset-details?id={{assets.id}}&typeCode={{assets.typeCode}}'> {{assets.name}}</a></mat-cell>
+            </ng-container>
+  
+  
+            <ng-container matColumnDef="parentAsset">
+              <mat-header-cell *matHeaderCellDef> Parent Asset </mat-header-cell>
+              <mat-cell *matCellDef="let assets"> {{assets.refAssetName}} </mat-cell>
+            </ng-container>
+  
+  
+            <ng-container matColumnDef="assetType">
+              <mat-header-cell *matHeaderCellDef> Asset Type </mat-header-cell>
+              <mat-cell *matCellDef="let assets"> {{assets.typeName}}</mat-cell>
+            </ng-container>
+  
+            <ng-container matColumnDef="id">
+              <mat-header-cell [style.display]="'none'" *matHeaderCellDef> ID </mat-header-cell>
+              <mat-cell [style.display]="'none'" *matCellDef="let assets"> {{assets.id}} </mat-cell>
+            </ng-container>
+  
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row 
+              *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+          <h3 i18n="No records found text|No records found@@noRecordsFound" *ngIf="noRecordFound"
+            class="text-center noRecordsFound"> No records found!
+          </h3>
+        </app-panel-user>
+      
+    </div>
+  </div>
+  
+  

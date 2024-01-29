@@ -1,0 +1,113 @@
+<div class="container">
+    <div class="row margin_0px rowBox margin_top_5px">
+        <div class="col-md-2 box">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="div-h">
+                        <h6 class="marker-name"><img [src]='imgUrl' alt="Loading........"></h6>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <h6 class="asset-name">{{assetname}}</h6>
+                    <p>({{typename}})</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 box">
+            <div class="div-h">
+                <h6>Properties</h6>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <tr>
+                        <td>Latitude</td>
+                        <td>:</td>
+                        <td><b>{{latitude}}</b></td>
+                    </tr>
+                    <tr>
+                        <td>Longitude</td>
+                        <td>:</td>
+                        <td><b>{{longitude}}</b></td>
+                    </tr>
+                    <tr *ngIf="typecode == 'SLP'">
+                        <td>No of Lights</td>
+                        <td>:</td>
+                        <td><b>{{lightCount | hyphen}}</b></td>
+                    </tr>
+                    <tr *ngIf="typecode == 'SLP'">
+                        <td>Light Brand/ Driver</td>
+                        <td>:</td>
+                        <td><b>{{lightBrandDriver | hyphen}}</b></td>
+                    </tr>
+                </div>
+
+                <div class="col-md-5">
+                    <tr>
+                        <td>Name</td>
+                        <td>:</td>
+                        <td><b>{{assetname}}</b></td>
+                    </tr>
+                    <tr *ngIf="typecode == 'SLP'">
+                        <td>{{typecode}} Name </td>
+                        <td>:</td>
+                        <td><b>{{siteName | hyphen}}</b></td>
+                    </tr>
+                    <tr *ngIf="typecode == 'SLP'">
+                        <td>Light Watt</td>
+                        <td>:</td>
+                        <td><b>{{lightWatt | hyphen}}</b></td>
+                    </tr>
+                    <tr *ngIf="typecode == 'SLP'">
+                        <td>Contract</td>
+                        <td>:</td>
+                        <td><b>{{contract | hyphen}}</b></td>
+                    </tr>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 box">
+
+            <div  class="row" *ngIf="displayPage!='SLP'">
+                <div class="col-md-7">
+                    <div class="div-h" *ngIf="assetAlarmCount === null || assetAlarmCount === 0">
+                        <h6>Alarms View</h6>
+                        <h6> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i></h6>
+                        <h6>No Alarms Available</h6>
+                    </div>
+                    <div class="div-h" *ngIf="assetAlarmCount !== null && assetAlarmCount !== 0 ">
+                        <h6>Alarm Count</h6>
+                         <a href='#/alarm/alarms/'> 
+                            <h2>{{assetAlarmCount}}</h2>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-5 slpblk">
+                    <div class="div-h">
+                        <h6>{{assetTypeCode}}(s) Count</h6>
+                        <h2>{{assetCount}}</h2>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="displayPage == 'SLP'">
+                <div class="div-h" *ngIf="assetAlarmCount === null || assetAlarmCount === 0">
+                    <h6>Alarms View</h6>
+                    <h6> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i></h6>
+                    <h6>No Alarms Available</h6>
+                </div>
+                <div class="div-h" *ngIf="assetAlarmCount !== null && assetAlarmCount !== 0">
+                    <h6>Alarm Count</h6>
+                    <a href='#/alarm/alarms/'> 
+                        <h2>{{assetAlarmCount}}</h2>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <app-asset-child *ngIf="displayPage != 'SLP-LIST' && displayPage != 'SLP' && displayPage != null" [childdetaildata]="asset"></app-asset-child>
+            <app-slp-list *ngIf="displayPage !='SLP' && displayPage == 'SLP-LIST'" [childdetaildata]="assetLatestStatus"></app-slp-list>
+            <app-slp-detail *ngIf="displayPage == 'SLP' && displayPage != 'SLP-LIST'" ></app-slp-detail>
+        </div>
+    </div>
+</div>

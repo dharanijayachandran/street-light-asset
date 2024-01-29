@@ -1,0 +1,30 @@
+<app-panel-user name="Door Status" #panelHeader (refreshTableList)="refreshDoorStatus()">
+  <div *ngIf="showLoaderImage" class="col-lg-12" style="margin-left:20%; margin-top:0%;margin-bottom:0%;"
+    text-align="center">
+    <img src="/assets/img/dashboard/ProgressLoader.gif" height="auto" width="50%" alt="Loading........">
+  </div>
+ 
+<div *ngIf="null != doorStatus">
+  <div class="status">
+    <table #doorStatus class="en-consumption">
+      <tr>
+        <td rowspan="2" class="td-label">Door Panel</td>
+        <td></td>
+        <td><img class="td-img" [src]='imageUrl' alt="Loading..."></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td *ngIf="null!=status" class="td-label">Door is <b class="td-value">{{status}}</b></td>
+        <td *ngIf="null==status" class="td-label">Door Status is Unknown </td>
+      </tr>
+      <tr>
+        <td class="td-label"> Time</td>
+        <td>:</td>
+        <td *ngIf="null!=statusTime" class="td-value"><b>{{statusTime}}</b></td>
+        <td *ngIf="null==statusTime" class="td-value">-</td>
+      </tr>
+    </table>
+  </div>
+  </div>
+</app-panel-user>

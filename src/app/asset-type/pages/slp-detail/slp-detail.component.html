@@ -1,0 +1,291 @@
+<div>
+    <h1 class="page-header classname"></h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="colBox">
+                <app-light-status [slpId]="assetId"></app-light-status>
+            </div>
+        </div>
+
+        <div class="col-md-4 ">
+            <div class="colBox">
+                <app-door-status [slpId]="assetId"></app-door-status>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="colBox">
+                <app-instantaneous-electrical-parameter [slpId]="assetId"></app-instantaneous-electrical-parameter>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-4">
+            <div class="colBox">
+                <app-environmental-parameters  [slpId]="assetId"></app-environmental-parameters>
+            </div>
+        </div>
+
+        <div class="col-md-4 ">
+            <div class="colBox">
+                <app-today-energy-analysis [slpId]="assetId"></app-today-energy-analysis>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="colBox">
+                <app-current-week-energy-analysis [slpId]="assetId"></app-current-week-energy-analysis>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 ">
+            <div class="colBox">
+                <app-current-month-energy-analysis [slpId]="assetId"></app-current-month-energy-analysis>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="colBox">
+                <app-current-year-energy-analysis [slpId]="assetId"></app-current-year-energy-analysis>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="colBox">
+                <app-light-run-hour-analysis [slpId]="assetId"></app-light-run-hour-analysis>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-4 ">
+            <div class="colBox">
+                <app-daily-run-hour-analysis [slpId]="assetId"></app-daily-run-hour-analysis>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="colBox">
+                <app-monthly-run-hour-analysis [slpId]="assetId"></app-monthly-run-hour-analysis>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="colBox">
+                <app-yearly-run-hour-analysis [slpId]="assetId"></app-yearly-run-hour-analysis>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="colBox">
+                <app-daily-energy-comparision [slpId]="assetId"></app-daily-energy-comparision>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="colBox">
+                <app-weekly-energy-comparision [slpId]="assetId"></app-weekly-energy-comparision>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="colBox">
+                <app-monthly-energy-comparision [slpId]="assetId"></app-monthly-energy-comparision>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="colBox">
+                <app-yearly-energy-comparision [slpId]="assetId"></app-yearly-energy-comparision>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="colBox">
+                <app-daily-cost-comparision [slpId]="assetId"></app-daily-cost-comparision>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="colBox">
+                <app-weekly-cost-comparision [slpId]="assetId"></app-weekly-cost-comparision>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="colBox">
+                <app-monthly-cost-comparision [slpId]="assetId"></app-monthly-cost-comparision>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="colBox">
+                <app-yearly-cost-comparision [slpId]="assetId"></app-yearly-cost-comparision>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="colBox">
+                <app-yearly-energy-emission [slpId]="assetId"></app-yearly-energy-emission>
+            </div>
+        </div>
+    </div>
+    <!-- 3 types of Chart & Display tdy,yesterday,last 7 days data-->
+        <div class="row">
+            <div class="col-md-3">
+            <div class="colBox_statistic">
+                <div class="ejs-container">
+                    <app-panel-user name="Statistic list" #panelHeader (refreshTableList)="refreshTableListFunction()">
+                        <!-- Input field for search -->
+            <input searchfieldPanel style="display: none" id="search" class="form-control m-input ml-2"
+            (keyup)="filterAsset($event.target.value)" i18n-placeholder="Search|Search placeholder@@search" matInput
+            placeholder="Search.." />
+          <!-- Search button -->
+          <a searchButtonPanel href="javascript:;" i18n-matTooltip="Search button|Click to Search@@ClickToSearch"
+            matTooltip="Click to Search" class="btn btn-xs btn-icon btn-circle btn-default"
+            (click)="panelHeader.searchButtonPanel(this.assetTags)">
+            <i class="fa fa-search"></i>
+          </a>
+                    <div id='treeelement' class="ps position-relative treeelement" appScrollbarDirective style="border:0%;">
+                        <ng-container>
+                            <ejs-treeview #treeview="" (nodeSelected)='onClickFilterData($event)'[fields]='field'>
+                            </ejs-treeview>
+                        </ng-container>
+                    </div>
+                </app-panel-user>
+                </div>
+                </div>
+            </div>
+            
+    <!-- begin col-9 -->
+    <div class="col-md-9">
+        <div class="colBox_statistic">
+            <app-panel-user  name="{{selectedAssetName}}"  (refreshTableList)="refreshTableListFunction()" >
+        <div class="container" style="position: relative; height: 450px;">
+          <div class="padding"></div>
+            <ngb-tabset type="pills" (tabChange)="changeTab($event)"  >
+            <ngb-tab id="today">
+                <ng-template ngbTabTitle>
+                    <span class="d-sm-none">Today</span>
+                    <span class="d-sm-block d-none">Today</span>
+                </ng-template>
+                <ng-template ngbTabContent>
+                            <div *ngFor="let assetTag of data; let i = index;" id="row{{i}}" >
+                            <ejs-chart style='width:100%; height: 380px;' #chartTdy id="tdy" align='center' [title]='title'
+                              [primaryXAxis]='xyAxisConfiguaration[i].primaryXAxis'
+                              [primaryYAxis]='xyAxisConfiguaration[i].primaryYAxis'
+                              [zoomSettings]='xyAxisConfiguaration[i].zoomSettings' [tooltip]='tooltip' (load)='load($event)'
+                              [chartArea]='chartArea' [width]='width' [legendSettings]='legend'>
+                              <e-series-collection>
+                                <e-series [dataSource]='assetTag' [animation]='animation' type='Line' xName='x' yName='y' width=2
+                                  [marker]='marker'>
+                                </e-series>
+                              </e-series-collection>
+                            </ejs-chart>
+                            </div>
+                </ng-template>
+            </ngb-tab>
+
+            <ngb-tab id="yesterday">
+                <ng-template ngbTabTitle>
+                    <span class="d-sm-none">Yesterday</span>
+                    <span class="d-sm-block d-none">Yesterday</span>
+                </ng-template>
+                <ng-template ngbTabContent>
+                    <div id="tags">
+                     <div class="rowBox_withOutBorderTop custom-rounded-bottom">
+                        <div *ngFor="let assetTag of data; let i = index;" id="row{{i}}" >
+                            <ejs-chart style='width:100%; height: 400px;' #chartYdy id="ydy" align='center' [title]='title'
+                              [primaryXAxis]='xyAxisConfiguaration[i].primaryXAxis'
+                              [primaryYAxis]='xyAxisConfiguaration[i].primaryYAxis'
+                              [zoomSettings]='xyAxisConfiguaration[i].zoomSettings' [tooltip]='tooltip' (load)='load($event)'
+                              [chartArea]='chartArea' [width]='width' [legendSettings]='legend'>
+                              <e-series-collection>
+                                <e-series [dataSource]='assetTag' [animation]='animation' type='Line' xName='x' yName='y' width=2
+                                  [marker]='marker'>
+                                </e-series>
+                              </e-series-collection>
+                            </ejs-chart>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </ngb-tab>
+
+            <ngb-tab id="seven_days">
+                <ng-template ngbTabTitle>
+                    <span class="d-sm-none">7 Days</span>
+                    <span class="d-sm-block d-none">7 Days</span>
+                </ng-template>
+                <ng-template ngbTabContent>
+                    <div id="tags">
+                        <div class="rowBox_withOutBorderTop custom-rounded-bottom">
+                            <div *ngFor="let assetTag of data; let i = index;" id="row{{i}}" >
+                            <ejs-chart style='width:95%; height: 380px;' #chartSevendy id="sdy" align='center' [title]='title'
+                              [primaryXAxis]='xyAxisConfiguaration[i].primaryXAxis'
+                              [primaryYAxis]='xyAxisConfiguaration[i].primaryYAxis'
+                              [zoomSettings]='xyAxisConfiguaration[i].zoomSettings' [tooltip]='tooltip' (load)='load($event)'
+                              [chartArea]='chartArea' [width]='width' [legendSettings]='legend'>
+                              <e-series-collection>
+                                <e-series [dataSource]='assetTag' [animation]='animation' type='Line' xName='x' yName='y' width=2
+                                  [marker]='marker'>
+                                </e-series>
+                              </e-series-collection>
+                            </ejs-chart>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </ngb-tab>
+        </ngb-tabset>
+        <div *ngIf="showLoaderImage" class="col-lg-12" style="margin-left:0%; margin-top:0%;margin-bottom:0%;"
+                align="center">
+                <img src="/assets/img/dashboard/ProgressLoader.gif" height="auto" width="50%" alt="Loading........">
+              </div>
+
+              <h3 *ngIf="noRecordsFound" class="text-center noRecordsFound" style="padding-top:150px;">
+                No records found!
+              </h3>
+            </div>
+            </app-panel-user>
+    </div>
+    </div>
+    <!-- end col-7 -->
+
+        <!-- end nav-tabs -->
+        
+</div>
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div class="statistic">
+    <h1 class="page-header classname">Statistic List</h1> 
+    <div class="row">
+        <div class="col-md-3">
+            <div class="search-container box-s">
+                <form>
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="box-s">
+                <p> graph will be added here.......</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+ -->

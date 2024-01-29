@@ -1,0 +1,14 @@
+
+<app-panel-user name="Daily Cost Comparison" #panelHeader  (refreshTableList)="refreshDailyCostComparison()" (panelExpandCollapse)="maxOrMinScreen()">
+<div *ngIf="showLoaderImage" class="col-lg-12" style="margin-left:20%; margin-top:0%;margin-bottom:0%;"
+text-align="center">
+<img src="/assets/img/dashboard/ProgressLoader.gif" height="auto" width="50%" alt="Loading........">
+</div>
+    <div *ngIf="null != dailyCost">
+    <ejs-chart #chart [chartArea]='chartArea' id='chart-container'  height="250px"
+        [primaryXAxis]="primaryXAxis" [primaryYAxis]="primaryYAxis" [tooltip]='tooltip' [palettes]='palette'>
+        <e-series-collection>
+            <e-series [dataSource]="dailyCost" type="Column" xName="name" yName="value"></e-series>
+        </e-series-collection>
+    </ejs-chart></div>
+</app-panel-user>

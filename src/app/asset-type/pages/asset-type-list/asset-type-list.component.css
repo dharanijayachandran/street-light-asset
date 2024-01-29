@@ -1,0 +1,23 @@
+.e-treeview .e-list-text {
+     line-height: 30px; 
+    padding: 0 5px !important;
+} 
+.e-treeview .e-ul{
+    margin: 0;
+    padding: 0 0 0 0px;
+}
+.e-text-content {
+    padding: 0px !important;
+}
+.e-control, .e-css {
+    font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
+    font-size: 12px;
+    font-weight: normal;
+} 
+ .row.margin_0px.rowBox.margin_top_5px {
+    height: 460px;
+}  
+.e-treeview .e-list-item {
+    list-style: none;
+    padding: 0px 0 !important;
+}

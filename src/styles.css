@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+/*  @import "../node_modules/angular2-multiselect-dropdown/themes/default.theme.css"; */
+/*  */
+/* @import '../node_modules/font-awesome/css/font-awesome.min.css';  */
+@import '../node_modules/global/assets/css/customStyleSheet/global-style-sheet.css';
+@import "../node_modules/@syncfusion/ej2-angular-navigations/styles/material.css";
+
+.energy-analysis {
+    padding: 10px;
+
+}
+
+td {
+    padding: 6px;
+}
+
+.td-label {
+    font-size: 13px;
+    text-align: left;
+}
+
+.td-value {
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.status {
+    text-align: center;
+    border: 1px solid #F2F3F4;
+    /* margin-left: 85px;
+    margin-top: 30px; */
+    margin: 40px;
+    border-radius: 2px;
+}
+
+table.en-consumption {
+    width: 100%;
+}
+
+tr.tr-row {
+    border: 1px solid #F2F3F4 !important;
+    padding: 4px !important;
+    text-align: center;
+    height: 40px !important;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+/* tr.tr-row:nth-child(even){
+    background-color:#F2F3F4 ;
+} */
+tr.tr-row:hover {
+    background: #add8e6 !important;
+}
+
+tr.tr-row td:first-child {
+    width: 11em;
+}

@@ -1,0 +1,42 @@
+.colBox {
+    border: 1px solid #F2F3F4;
+    height: 300px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+}
+
+.box-s{
+    border: 1px solid #F2F3F4;
+    height: 250px;
+}
+form {
+    text-align: center;
+    padding-top: 10px;
+}
+h1.page-header.classname {
+    padding: 4px;
+}
+.padding{
+    padding-bottom: 3px;
+}
+.e-treeview .e-ul{
+   margin: 0;
+   padding: 0 0 0 0px;
+}
+.e-text-content {
+    padding: 0px !important;
+}
+.colBox_statistic{
+    border: 1px solid #F2F3F4;
+    height: 500px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+}
+.e-treeview .e-list-text {
+    line-height: 30px; 
+   padding: 0 3px !important;
+} 
+.ejs-container{
+    max-height: 490px;
+    overflow: auto;
+}

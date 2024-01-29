@@ -1,0 +1,27 @@
+.mat-mdc-cell {
+    border-right: none !important;
+}
+
+.mat-mdc-row:hover {
+    background: #add8e6 !important;
+}
+
+.mat-mdc-header-cell {
+    font-family: "IBMPlexSans-medium";
+    font-size: 13px;
+    color: #707478 !important;
+}
+
+.mat-cell-value {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px;
+    text-align: left;
+    color: #707478 !important;
+}
+
+.mat-first-col {
+    font-family: "IBMPlexSans-Regular" !important;
+    font-size: 13px;
+    color: #707478 !important;
+}

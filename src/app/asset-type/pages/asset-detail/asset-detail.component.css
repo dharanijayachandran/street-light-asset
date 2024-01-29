@@ -1,0 +1,69 @@
+.row.rowBox .box{
+    
+    padding-right: 2px;
+    padding-left: 2px;
+    border: 1px solid #F2F3F4;
+}
+.div-h h6{
+    text-align:center;
+}
+
+h6.marker-name .fa.fa-map-marker{
+    padding: 5px 10px;
+    border: 2px solid;
+    border-radius: 100%;
+}
+ .div-h{
+    margin-top: 10px;
+}
+
+h6.marker-name {
+    text-align: center;
+   /*  padding-top: 22px; */
+}
+label{
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+.mat-mdc-row:hover {
+    background: #add8e6 !important;
+  }
+
+.div-h .fa-exclamation-triangle{
+    text-align: center;
+    font-size: 40px;
+}
+.p-d{
+    float: right;
+    padding-right: 10px;
+}
+.asset-name{
+    padding-top: 30px;
+    margin-bottom: 2px;
+    font-size: 16px;
+}
+.col-md-5.slpblk{
+    border-left: 1px solid #F2F3F4;
+    height: 120px;
+} 
+a.back-link{
+    float: right;
+    background: #add8e6;
+    padding: 5px;
+    margin-top: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+h2{
+    text-align: center;
+}
+@media screen and (min-width: 280px) {
+    .col-md-5.slpblk{
+        border-top: 1px solid #F2F3F4;
+    } 
+}
+@media screen and (max-width: 900px){
+    .container{
+        padding-top:25px;
+    }
+}
